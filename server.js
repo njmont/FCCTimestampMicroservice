@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-var router = express.Router();
 var app = express()
 
 // view engine setup
@@ -17,11 +16,11 @@ app.listen(port, function () {
 })
 
 /* GET home page. */
-router.get("/", function(req, res, next){
+app.get("/", function(req, res, next){
   res.render("index", {});
 })
 
-router.param('date', function(req, res, next, value) {
+app.param('date', function(req, res, next, value) {
   "use strict";
 
   let return_object = {
@@ -43,8 +42,8 @@ router.param('date', function(req, res, next, value) {
   res.json(return_object);
 });
 
-router.get("/:date", function(req, res, next){
+app.get("/:date", function(req, res, next){
 })
 
 
-module.exports = router;
+module.exports = app;
