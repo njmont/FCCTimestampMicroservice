@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
+router.get("/", function(req, res, next){
+  res.render("index", {});
+})
+
 router.param('date', function(req, res, next, value) {
   "use strict";
 
@@ -20,11 +24,12 @@ router.param('date', function(req, res, next, value) {
   } else {
     console.log("Invalid date");
   }
-  
+
   res.json(return_object);
 });
 
 router.get("/:date", function(req, res, next){
 })
+
 
 module.exports = router;
